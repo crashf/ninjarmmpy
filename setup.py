@@ -1,24 +1,17 @@
-import setuptools
+import os
+os.environ['NRMM_KEY_ID'] = 'TC8RN6QGT8VJS8PFGE7V'
+os.environ['NRMM_SECRET'] = 'kce6aa6t5c8mnmo7u3a18avpqb36efbd0eje74k4'
 
-with open("README.md", "r") as fh:
-    long_description = fh.read()
+env_var_value = os.getenv('NRMM_KEY_ID')
+if env_var_value is not None:
+    print(f"Value of VARIABLE_NAME: {env_var_value}")
+else:
+    print("Environment variable VARIABLE_NAME is not set.")
 
-setuptools.setup(
-    name="ninjarmmpy",
-    version="0.2.0",
-    author="Abdullah 'AJ' Khan",
-    author_email="aj@ajkhan.me",
-    description="Unofficial API client wrapper around v2 of the NinjaRMM API",
-    long_description=long_description,
-    long_description_content_type="text/markdown",
-    url="https://github.com/ak9999/ninjarmmpy",
-    packages=setuptools.find_packages(),
-    classifiers=[
-        "Programming Language :: Python :: 3",
-        "Operating System :: OS Independent",
-    ],
-    install_requires=[
-        'requests>=2.23.0'
-    ],
-    python_requires='>=3.7',
-)
+# Using environ.get()
+env_var_value = os.environ.get('NRMM_SECRET')
+if env_var_value is not None:
+    print(f"Value of VARIABLE_NAME: {env_var_value}")
+else:
+    print("Environment variable VARIABLE_NAME is not set.")
+
